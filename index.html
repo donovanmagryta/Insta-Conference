@@ -14,7 +14,7 @@ video {
 
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
 <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
-<script>function notifyMe() {
+<script>
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
     alert("This browser does not support desktop notification");
@@ -39,7 +39,7 @@ video {
 
   // At last, if the user has denied notifications, and you 
   // want to be respectful there is no need to bother them any more.
-  }
+  
   </script>
 <script>
 var connection = new RTCMultiConnection();
