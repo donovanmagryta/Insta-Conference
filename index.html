@@ -15,6 +15,7 @@ video {
 
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
 <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
+ <script src="https://cdn.webrtc-experiment.com/FileBufferReader.js"></script>
 <script>
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
@@ -52,10 +53,12 @@ connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
 connection.session = {
     audio: true,
     video: true,
-    data:   true,
+    data:   true
     //screen: true,
     //oneway: true
 };
+connection.autoSaveToDisk = true;
+connection.enableFileSharing = true;
 
 connection.sdpConstraints.mandatory = {
     OfferToReceiveAudio: true,
@@ -80,8 +83,5 @@ document.querySelector('input[type=file]').onchange = function() {
 };
 }
 </script>
-
-
-
 </body>
 </html>
