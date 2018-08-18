@@ -10,7 +10,6 @@ video {
 <body>
 
 <h1>Instant Call</h1>
-  <input type onchange="filin()">
 
 
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
@@ -78,11 +77,10 @@ connection.openOrJoin(predefinedRoomId);
 if (connection.newParticipant === true) {
   var notification = new Notification("New Call!");
 };
-function filin() { 
-document.querySelector('input[type=file]').onchange = function() {
-    connection.send(this.files[0]);
-};
-}
+var selector = new FileSelector();
+    selector.selectSingleFile(function(file) {
+        connection.send(file);
+    });
 </script>
 </body>
 </html>
