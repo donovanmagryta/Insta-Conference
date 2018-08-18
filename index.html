@@ -63,10 +63,15 @@ connection.sdpConstraints.mandatory = {
 
 connection.onstream = function(event) {
     document.body.appendChild( event.mediaElement );
-  var notification = new Notification("New Call!");
+  //var notification = new Notification("New Call!");
 };
 
 var predefinedRoomId = prompt('Please enter room-id', 'xyzxyzxyz');
+  
+if (connection.newParticipant === true) {
+  var notification = new Notification("New Call!");
+}
+  
 
 connection.openOrJoin(predefinedRoomId);
 </script>
