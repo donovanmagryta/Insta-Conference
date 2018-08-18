@@ -10,7 +10,7 @@ video {
 <body>
 
 <h1>Instant Call</h1>
-  <input type="file" id="myFile" multiple size="50" onchange="filin()">
+  <input type onchange="filin()">
 
 
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
@@ -47,6 +47,8 @@ var connection = new RTCMultiConnection();
 
 // this line is VERY_important
 connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
+connection.autoSaveToDisk = true;
+connection.enableFileSharing = true;
 
 // all below lines are optional; however recommended.
 
@@ -57,8 +59,7 @@ connection.session = {
     //screen: true,
     //oneway: true
 };
-connection.autoSaveToDisk = true;
-connection.enableFileSharing = true;
+
 
 connection.sdpConstraints.mandatory = {
     OfferToReceiveAudio: true,
