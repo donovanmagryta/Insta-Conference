@@ -81,10 +81,23 @@ document.querySelector('input[type=file]').onchange = function() {
 };
 };
   */
+  var me = connection.userid;
+  connection.sendCustomMessage(me);
   
+  connection.onCustomMessage = function(message) {
+  if (message != me) {
+    var notification = new Notification("New Caller!");
+  };
+  };
+//connection.sendCustomMessage({
+    //userOnline: true,
+    //userid: connection.userid
+//});
+  /*
 if (connection.newParticipant === true) {
   var notification = new Notification("New Call!");
 };
+*/
  
 </script>
 </body>
