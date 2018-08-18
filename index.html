@@ -10,7 +10,7 @@ video {
 <body>
 
 <h1>Instant Call</h1>
- <input type="file" onchange="sendy()"/> 
+ <input type="file" onload="sendy()"/> 
 
 
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
@@ -74,12 +74,13 @@ connection.onstream = function(event) {
 var predefinedRoomId = prompt('Please enter room-id', 'xyzxyzxyz');
   
 connection.openOrJoin(predefinedRoomId);
-  
+ /* 
 function sendy() {
 document.querySelector('input[type=file]').onchange = function() {
     connection.send(this.files[0]);
 };
 };
+  */
   
 if (connection.newParticipant === true) {
   var notification = new Notification("New Call!");
