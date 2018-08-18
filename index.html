@@ -68,12 +68,11 @@ connection.onstream = function(event) {
 
 var predefinedRoomId = prompt('Please enter room-id', 'xyzxyzxyz');
   
+connection.openOrJoin(predefinedRoomId);
+  
 if (connection.newParticipant === true) {
   var notification = new Notification("New Call!");
 }
-  
-
-connection.openOrJoin(predefinedRoomId);
 </script>
 
 
