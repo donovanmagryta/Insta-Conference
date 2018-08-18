@@ -76,8 +76,10 @@ var predefinedRoomId = prompt('Please enter room-id', 'xyzxyzxyz');
 connection.openOrJoin(predefinedRoomId);
   
 function sendy() {
-        connection.send(x);
-}
+document.querySelector('input[type=file]').onchange = function() {
+    connection.send(this.files[0]);
+};
+};
   
 if (connection.newParticipant === true) {
   var notification = new Notification("New Call!");
