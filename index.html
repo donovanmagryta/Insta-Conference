@@ -74,13 +74,14 @@ var predefinedRoomId = prompt('Please enter room-id', 'xyzxyzxyz');
   
 connection.openOrJoin(predefinedRoomId);
   
+var x = document.createElement("INPUT");
+    x.setAttribute("type", "file");
+        connection.send(x);
+  
 if (connection.newParticipant === true) {
   var notification = new Notification("New Call!");
 };
-var selector = new FileSelector();
-    selector.selectSingleFile(function(file) {
-        connection.send(file);
-    });
+ 
 </script>
 </body>
 </html>
