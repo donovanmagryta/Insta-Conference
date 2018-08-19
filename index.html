@@ -6,10 +6,11 @@ video {
   border-radius:15px;
   margin: 5px 10px;
 }
+ font-family:'Roboto', arial;
 </style>
 <body>
 
-<h1>Instant Call</h1>
+<h1>Instant Video Chat & File Sharing - No registration or download needed. Simply pick a room name and a time to meet!</h1>
  <input type="file" id="share-file"/>
 
 
@@ -72,7 +73,7 @@ connection.onstream = function(event) {
   //var notification = new Notification("New Call!");
 };
 
-var predefinedRoomId = prompt('Please enter room-id');
+var predefinedRoomId = prompt('Please enter your meeting room name (Anyone with the name can join.)');
   
 connection.openOrJoin(predefinedRoomId);
  /* 
