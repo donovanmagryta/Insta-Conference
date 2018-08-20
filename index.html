@@ -79,19 +79,12 @@ connection.sdpConstraints.mandatory = {
 
 connection.onstream = function(event) {
     document.body.appendChild( event.mediaElement );
-  //var notification = new Notification("New Call!");
 };
 
 var predefinedRoomId = prompt('Please enter your meeting room name (Anyone with the name can join.)');
   
 connection.openOrJoin(predefinedRoomId);
- /* 
-function sendy() {
-document.querySelector('input[type=file]').onchange = function() {
-    connection.send(this.files[0]);
-};
-};
-  */
+  
   document.getElementById('share-file').onclick = function() {
     var fileSelector = new FileSelector();
     fileSelector.selectSingleFile(function(file) {
@@ -99,15 +92,15 @@ document.querySelector('input[type=file]').onchange = function() {
     });
 };
 
-  var me = connection.userid;
+  /* var me = connection.userid;
   connection.sendCustomMessage(me);
   
-  /*connection.onCustomMessage = function(message) {
+  connection.onCustomMessage = function(message) {
   if (message != me) {
     var notification = new Notification("New Caller!");
   }
   };
-  */
+  
 connection.sendCustomMessage({
     userOnline: true,
     userid: connection.userid
@@ -116,6 +109,7 @@ connection.sendCustomMessage({
 if (connection.newParticipant === true) {
   var notification = new Notification("New Call!");
 };
+  */
 
  
 </script>
