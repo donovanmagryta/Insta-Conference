@@ -23,8 +23,8 @@ video {
 <!--<script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>-->
 <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
  <!--<script src="https://cdn.webrtc-experiment.com:443/FileBufferReader.js"></script>-->
- <!-- <script src="https://cdn.webrtc-experiment.com/FileBufferReader.js"></script>-->
-  <script src="FileBufferReader.js"></script>
+ <script src="https://cdn.webrtc-experiment.com/FileBufferReader.js"></script>
+  <!--<script src="FileBufferReader.js"></script>-->
   <!--<script src="socket.io.js"></script>-->
   <script src="RTCMultiConnection.min.js"></script>
 <script>
@@ -41,14 +41,14 @@ video {
   //}
 
   // Otherwise, we need to ask the user for permission
-  else if (Notification.permission !== "denied") {
-    Notification.requestPermission(function (permission) {
+  //else if (Notification.permission !== "denied") {
+   // Notification.requestPermission(function (permission) {
       // If the user accepts, let's create a notification
      // if (permission === "granted") {
         
      // }
-    });
-  }
+    //});
+  //}
 
   // At last, if the user has denied notifications, and you 
   // want to be respectful there is no need to bother them any more.
