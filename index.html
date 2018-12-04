@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <link rel="manifest" href="manifest.json"></link>
+  <link rel="canonical" href="https://donovanmagryta.github.io/insta-conference/" />
 </head>
 <html>
 <style>
@@ -22,7 +22,15 @@ video {
 <!-- <input type="file" id="share-file"/>-->
   <button id="share-file">share a file</button>
 
-<script src="manup.js"></script>
+<script>
+  // register ServiceWorker, remember to use absolute path!
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('/insta-conference/sw.js', {scope: '/insta-conference/'})
+  }
+  
+  // --- Application code here ---
+  </script>
+  
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
 <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
  <script src="https://cdn.webrtc-experiment.com:443/FileBufferReader.js"></script>
