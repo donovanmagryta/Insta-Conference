@@ -2,7 +2,6 @@ const cacheName = 'InstaCon';
 const resourcesToCache = [
   'index.html',
   'manifest.json',
-  'logo.svg',
 ];
 
 self.addEventListener('install', function(event) {
