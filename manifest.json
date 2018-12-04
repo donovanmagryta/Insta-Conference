@@ -4,8 +4,7 @@
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",
-  "Scope": "/Insta-Conference/\"",
-  "start_url": "https://donovanmagryta.github.io/Insta-Conference/",
+  "start_url": "index.html",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
