@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <head>
-  <link rel="canonical" href="https://donovanmagryta.github.io/insta-conference/" />
 </head>
 <html>
 <style>
@@ -23,13 +22,14 @@ video {
   <button id="share-file">share a file</button>
 
 <script>
-  // register ServiceWorker, remember to use absolute path!
-  if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/insta-conference/sw.js', {scope: '/insta-conference/'})
-  }
+  <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Registration success. Scope is ', reg.scope))
+        .catch(err => console.log('Registration failed. ', err));
+      }
+    </script>
   
-  // --- Application code here ---
-  </script>
   
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
 <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
