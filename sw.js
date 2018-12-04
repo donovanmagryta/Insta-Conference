@@ -1,4 +1,4 @@
-const cacheName = 'a2hs-test';
+const cacheName = 'InstaCon';
 const resourcesToCache = [
   'index.html',
   'manifest.json',
