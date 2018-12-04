@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <head>
-  <link rel="manifest" href="manifest.json">
+ <meta charset="utf-8">
+    <title>InstaConference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff"/>
+    <link rel="manifest" href="manifest.json">
 </head>
 <html>
 <style>
@@ -23,15 +27,12 @@ video {
   <button id="share-file">share a file</button>
 
 <script>
-  <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js')
         .then(reg => console.log('Registration success. Scope is ', reg.scope))
         .catch(err => console.log('Registration failed. ', err));
       }
     </script>
-  
-  
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
 <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
  <script src="https://cdn.webrtc-experiment.com:443/FileBufferReader.js"></script>
