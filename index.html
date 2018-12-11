@@ -90,7 +90,7 @@ connection.onstream = function(event) {
     document.body.appendChild( event.mediaElement );
 };
 
-var predefinedRoomId = prompt('Please pick a meeting passcode. Anyone with the passcode can join.');
+var predefinedRoomId = prompt('Pick or enter a meeting passcode. Anyone with the passcode can join.');
   
 connection.openOrJoin(predefinedRoomId);
   
