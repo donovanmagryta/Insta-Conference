@@ -54,32 +54,6 @@ video {
   <!--<script src="FileBufferReader.js"></script>-->
   <!--<script src="socket.io.js"></script>-->
   <!--<script src="RTCMultiConnection.min.js"></script>-->
-<script>
-  // Let's check if the browser supports notifications
-  if (!("Notification" in window)) {
-    alert("This browser does not support desktop notification");
-  }
-
-  // Let's check whether notification permissions have already been granted
-  //else if (Notification.permission === "granted") {
-    
-   // var notification = new Notification("Hi there!");
-    // If it's okay let's create a notification
-  //}
-
-  // Otherwise, we need to ask the user for permission
-  //else if (Notification.permission !== "denied") {
-   // Notification.requestPermission(function (permission) {
-      // If the user accepts, let's create a notification
-     // if (permission === "granted") {
-        
-     // }
-    //});
-  //}
-
-  // At last, if the user has denied notifications, and you 
-  // want to be respectful there is no need to bother them any more.
-  
 
 var connection = new RTCMultiConnection();
 
@@ -119,26 +93,6 @@ connection.openOrJoin(predefinedRoomId);
     });
 };
 
-  /* var me = connection.userid;
-  connection.sendCustomMessage(me);
-  
-  connection.onCustomMessage = function(message) {
-  if (message != me) {
-    var notification = new Notification("New Caller!");
-  }
-  };
-  
-connection.sendCustomMessage({
-    userOnline: true,
-    userid: connection.userid
-});
-  
-if (connection.newParticipant === true) {
-  var notification = new Notification("New Call!");
-};
-  */
-
- 
 </script>
 </body>
 </html>
