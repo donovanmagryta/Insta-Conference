@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140856480-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140856480-1');
+</script>
+
+ <meta charset="utf-8">
+    <title>InstaConference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF"/>
+    <meta name="description" content="Instant remote meetings & file sharing. No registration or downloads required.">
+  <meta name="keywords" content="skype, facetime, duo, hangouts, gotomeeting, adobe connect, video call, chat, instant, instacon, instaconference">
+  <meta name="author" content="Donovan">
+    <link rel="manifest" href="manifest.json">
+</head>
+<html>
+<style>
+
+
+video {
+display: inline;
+ float: left;
+ width: 45%;
+  border-radius:15px;
+  margin: 5px 10px;
+  }
+  body {
+ font-family: Arial;
+ font-size: medium;
+  }
+	button {
+		display: block;
+		align: center;
+	}
+
+
+	#warning-message { display: none; }
+
+    @media only screen and (orientation:portrait){
+
+        #wrapper { display:none; }
+
+        #warning-message { display:block; }
+
+    }
+
+    @media only screen and (orientation:landscape){
+
+        #warning-message { display:none; }
+
+    }
+
+</style>
+<body>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130573296-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-130573296-1');
+</script>
+<div id="warning-message">
+
+	<h1>This website works best in landscape mode.</h1>
+
+ </div>
+<div id="Wrapper">
+
+ <b><p>Instant video meetings & file sharing.</b> No registration or download needed.
+   Accept camera & mic permissions, pick a room passcode, and invite your team.</p>
+<!-- <input type="file" id="share-file"/>-->
+	<button id="share-file">share a file</button>
+
+<script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Registration success. Scope is ', reg.scope))
+        .catch(err => console.log('Registration failed. ', err));
+      }
+    </script>
+<script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
+<script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
+<!--<script src="https://cdn.webrtc-experiment.com:443/FileBufferReader.js"></script>-->
+
+<script src="https://cdn.webrtc-experiment.com/FileBufferReader.js"></script>
+ <!-- <script src="FileBufferReader.js"></script>
+ <!--<script src="socket.io.js"></script>-->
+ <!-- <script src="RTCMultiConnection.min.js"></script>-->
+<script>
+var connection = new RTCMultiConnection();
+
+// this line is VERY_important
+connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
+connection.autoSaveToDisk = false;
+connection.enableFileSharing = true;
+
+// all below lines are optional; however recommended.
+
+connection.session = {
+    audio: true,
+    video: true,
+    data:   true
+    //screen: true,
+    //oneway: true
+};
+
+
+connection.sdpConstraints.mandatory = {
+    OfferToReceiveAudio: true,
+    OfferToReceiveVideo: true
+};
+
+connection.onstream = function(event) {
+    document.body.appendChild( event.mediaElement );
+};
+
+var predefinedRoomId = prompt('Pick or enter a meeting passcode. Anyone with the passcode can join.');
+
+connection.openOrJoin(predefinedRoomId);
+
+  document.getElementById('share-file').onclick = function() {
+    var fileSelector = new FileSelector();
+    fileSelector.selectSingleFile(function(file) {
+        connection.send(file);
+    });
+};
+
+</script>
+	</div>
+</body>
+</html>
